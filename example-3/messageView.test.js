@@ -12,9 +12,13 @@ describe('MessageView', () => {
     const view = new MessageView();
 
     const buttonEl = document.querySelector('#show-message-button');
+    const message = document.querySelector('#message-input')
+
+    message.value = "This is a test"
     buttonEl.click();
 
     expect(document.querySelector('#message')).not.toBeNull();
+    expect(document.querySelector('#message').innerHTML).toEqual("This is a test")
   });
   it('clicks the button', () => {
     document.body.innerHTML = fs.readFileSync('./index.html');

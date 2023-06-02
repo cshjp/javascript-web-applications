@@ -18,4 +18,11 @@ describe(NotesModel, () => {
     notes.reset();
     expect(notes.getNotes()).toEqual([])
   });
+
+  it('adds multiple notes into the array from another array', () => {
+    const notes = new NotesModel();
+    notes.addNote('run to store')
+    notes.setNotes(["get milk", "store milk", "drink milk"])
+    expect(notes.getNotes()).toEqual(['run to store', "get milk", "store milk", "drink milk"])
+  })
 });
